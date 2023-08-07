@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class MenuBottom extends StatelessWidget {
   const MenuBottom({
     super.key,
@@ -16,19 +15,13 @@ class MenuBottom extends StatelessWidget {
             break;
           case 1:
             Navigator.pushNamed(context, '/bmi');
-            break;            
+            break;
         }
       },
-      items: [
-        BottomNavigationBarItem(
-          icon: Icon(Icons.home ),
-          label: 'Home'
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.monitor_weight ),
-          label: 'BMI'
-        ),
+      items: const [
+        BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+        BottomNavigationBarItem(icon: Icon(Icons.monitor_weight), label: 'BMI'),
       ],
-      );
+    );
   }
 }

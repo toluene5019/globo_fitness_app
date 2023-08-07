@@ -8,24 +8,24 @@ class IntroScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text('Globo fitness')),
-        drawer: MenuDrawer(),
-        bottomNavigationBar: MenuBottom(),
+        appBar: AppBar(title: const Text('Globo fitness')),
+        drawer: const MenuDrawer(),
+        bottomNavigationBar: const MenuBottom(),
         body: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
               image: DecorationImage(
             image: AssetImage('assets/beach.jpg'),
             fit: BoxFit.cover,
           )),
           child: Center(
-            child: Container(
-              padding: EdgeInsets.all(24),
-              decoration: BoxDecoration(
+              child: Container(
+            padding: const EdgeInsets.all(24),
+            decoration: const BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(20)),
               color: Colors.white70,
             ),
-                child:
-                Text('Commit to be fit, dare to be great \nwith Globo fitness',
+            child:
+                const Text('Commit to be fit, dare to be great \nwith Globo fitness',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 22,

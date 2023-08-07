@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import '../data/sp_helper.dart';
 import '../data/session.dart';
 
-
 class SessionsScreen extends StatefulWidget {
   const SessionsScreen({super.key});
 
@@ -32,47 +31,45 @@ class _SessionsScreenState extends State<SessionsScreen> {
       ),
       body: ListView(children: getContent()),
       floatingActionButton: FloatingActionButton(
-        child: const  Icon(Icons.add),
+        child: const Icon(Icons.add),
         onPressed: () {
           showSessionDialog(context);
         },
       ),
     );
   }
- 
+
   Future<dynamic> showSessionDialog(BuildContext context) async {
     return showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text('Insert Training Session'),
-          content: SingleChildScrollView(
-            child: Column(
-              children: [
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+              title: const Text('Insert Training Session'),
+              content: SingleChildScrollView(
+                  child: Column(children: [
                 TextField(
                   controller: txtDescription,
-                  decoration: InputDecoration(hintText: 'Description'),
+                  decoration: const InputDecoration(hintText: 'Description'),
                 ),
                 TextField(
                   controller: txtDuration,
-                  decoration: InputDecoration(hintText: 'Duration'),
+                  decoration: const InputDecoration(hintText: 'Duration'),
                 ),
-              ])), 
-        actions: [
-          TextButton(
-            child: Text('Cancel'),
-            onPressed: () {
-              Navigator.pop(context);
-              txtDescription.text = '';
-              txtDuration.text = '';
-            }),
-          ElevatedButton(
-            child: Text('Save'),
-            onPressed: saveSession,
-          ),
-        ]);
-          
-      });
+              ])),
+              actions: [
+                TextButton(
+                    child: const Text('Cancel'),
+                    onPressed: () {
+                      Navigator.pop(context);
+                      txtDescription.text = '';
+                      txtDuration.text = '';
+                    }),
+                ElevatedButton(
+                  onPressed: saveSession,
+                  child: const Text('Save'),
+                ),
+              ]);
+        });
   }
 
   Future saveSession() async {
@@ -80,7 +77,7 @@ class _SessionsScreenState extends State<SessionsScreen> {
     String today = '${now.year} - ${now.month} - ${now.day}';
     int id = helper.getCounter() + 1;
     Session newSession = Session(
-      id, today, txtDescription.text,int.tryParse(txtDuration.text) ?? 0);
+        id, today, txtDescription.text, int.tryParse(txtDuration.text) ?? 0);
     helper.writeSession(newSession).then((_) {
       updateScreen();
       helper.setCounter();
@@ -92,7 +89,7 @@ class _SessionsScreenState extends State<SessionsScreen> {
 
   List<Widget> getContent() {
     List<Widget> tiles = [];
-    sessions.forEach((session) { 
+    sessions.forEach((session) {
       tiles.add(Dismissible(
         key: UniqueKey(),
         onDismissed: (_) {
@@ -109,9 +106,6 @@ class _SessionsScreenState extends State<SessionsScreen> {
 
   void updateScreen() {
     sessions = helper.getSessions();
-    setState(() {
-    
-    });
+    setState(() {});
   }
-
 }

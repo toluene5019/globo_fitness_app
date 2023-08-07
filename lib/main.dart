@@ -4,7 +4,7 @@ import 'package:globo_fitness/screens/intro_screen.dart';
 
 
 void main() {
-  runApp(GlobeApp());
+  runApp(const GlobeApp());
 }
 
 class GlobeApp extends StatelessWidget {
@@ -15,8 +15,8 @@ class GlobeApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(primarySwatch: Colors.blueGrey),
       routes: {
-        '/': (context) => IntroScreen(),
-        '/bmi': (context) => BmiScreen(),
+        '/': (context) => const IntroScreen(),
+        '/bmi': (context) => const BmiScreen(),
       },
       initialRoute: '/',
       );

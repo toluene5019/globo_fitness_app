@@ -15,19 +15,19 @@ class _WeatherScreenState extends State<WeatherScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text('Weather')),
+        appBar: AppBar(title: const Text('Weather')),
         body: Padding(
-          padding: EdgeInsets.all(16),
+          padding: const EdgeInsets.all(16),
           child: ListView(
             children: [
               Padding(
-                padding: EdgeInsets.all(16),
+                padding: const EdgeInsets.all(16),
                 child: TextField(
                   controller: txtPlace,
                   decoration: InputDecoration(
                       hintText: 'Enter a city',
                       suffixIcon: IconButton(
-                          icon: Icon(Icons.search), onPressed: getData)),
+                          icon: const Icon(Icons.search), onPressed: getData)),
                 ),
               ),
               weatherRow('Place', result.name),
@@ -50,7 +50,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
 
   Widget weatherRow(String label, String value) {
     Widget row = Padding(
-        padding: EdgeInsets.symmetric(vertical: 16),
+        padding: const EdgeInsets.symmetric(vertical: 16),
         child: Row(children: [
           Expanded(
               flex: 3,
