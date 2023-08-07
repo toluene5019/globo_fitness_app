@@ -9,8 +9,8 @@ class SPHelper {
     prefs = await SharedPreferences.getInstance();
   }
 
-  Future writeSssion(Session session) async {
-    prefs.setString(session.id.toString(), json.encode(session.toString()));
+  Future writeSession(Session session) async {
+    prefs.setString(session.id.toString(), json.encode(session.toJson()));
   }
 
   List<Session> getSessions() {

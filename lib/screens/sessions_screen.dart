@@ -81,7 +81,7 @@ class _SessionsScreenState extends State<SessionsScreen> {
     int id = helper.getCounter() + 1;
     Session newSession = Session(
       id, today, txtDescription.text,int.tryParse(txtDuration.text) ?? 0);
-    helper.writeSssion(newSession).then((_) {
+    helper.writeSession(newSession).then((_) {
       updateScreen();
       helper.setCounter();
     });
